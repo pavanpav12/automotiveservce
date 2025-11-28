@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up | Stackly Automotive</title>
+
+  <style>
+    /* ===== base ===== */
+    :root{
+      --bg1:#2c3e50;
+      --bg2:#3498db;
+      --accent:#3498db;
+      --card-bg:#ffffff;
+      --muted:#6b7280;
+      --max-width:1100px;
+      --gap:18px;
+      --radius:12px;
+      font-family: Poppins, system-ui, "Segoe UI", Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* ===== header / nav ===== */
+    header{
+      width:100%;
+      position: sticky;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      z-index: 1000;
+      max-width:var(--max-width);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+      background:skyblue;
+      box-shadow: 0 4px 20px rgba(0,0,0,0,3);
+      padding: 10px 0;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo-img{
+      width:100px;
+      height:100px;
+      object-fit:contain;
+      border-radius:8px;
+      padding:6px;
+    }
+    .brand h2{
+      font-size:18px;
+      margin:0;
+      line-height:1;
+      letter-spacing:0.2px;
+    }
+    .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+    .nav{
+      position:static; /* Keep it in place as content scrolls */
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    background-color: #333; 
+}
+
+    /* main nav list */
+    .menu{
+      list-style:none;
+      display:flex;
+      gap:6px;
+      align-items:center;
+      margin:0;
+      padding:0;
+    }
+    .menu > li{
+      position:relative;
+    }
+    .menu a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      text-decoration:none;
+      color:#fff;
+      border-radius:8px;
+      background:transparent;
+      font-weight:600;
+      transition:background .18s, transform .12s;
+      font-size:14px;
+    }
+    .menu a:hover{ background: rgba(255,255,255,0.12); transform:translateY(-1px); }
+
+    /* active link */
+    .menu a.active{
+      background:linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.06));
+      color:#fff;
+    }
+
+    /* dropdown */
+    .dropdown{
+      position:absolute;
+     
+      left:0;
+      min-width:160px;
+      background:#fff;
+      border-radius:8px;
+      padding:8px 0;
+      box-shadow:0 10px 30px rgba(2,6,23,0.3);
+      display:none;
+      z-index:50;
+    }
+    .dropdown li{ list-style:none; }
+    .dropdown a{
+      color:#0f172a;
+      padding:8px 14px;
+      display:block;
+      font-size:13px;
+      font-weight:500;
+    }
+    .menu > li:hover .dropdown{ display:block; }
+
+    /* header utilities (right-side links) */
+    .nav-actions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .btn{
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-block;
+    }
+    .btn-outline{ color:#fff; border:1px solid rgba(255,255,255,0.2); background:transparent; }
+    .btn-primary{ background:#fff; color:var(--bg1); }
+
+    /* ===== container/card ===== */
+    .wrap{
+      position: sticky;
+      top: 0%;
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      gap:24px;
+      align-items:flex-start;
+      padding:0 8px;
+    }
+
+    .card{
+      flex:1;
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 14px 40px rgba(0,0,0,.18);
+    }
+    h1{ font-size:20px; color:#0f172a; margin-bottom:12px; text-align:center }
+
+    /* ===== form grid ===== */
+    form{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px 18px;
+    }
+    label{ font-size:13px; color:#374151; display:block; margin-bottom:6px }
+    input, select, textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #e5e7eb;
+      background:#fbfbfb;
+      font-size:14px;
+      color:#0f172a;
+    }
+    textarea{ resize:vertical }
+    .full{ grid-column: 1 / -1; }
+
+    button[type="submit"]{
+      grid-column: 1 / -1;
+      padding:12px 16px;
+      border:0;
+      border-radius:10px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      font-size:15px;
+    }
+
+    .note{ grid-column:1 / -1; text-align:center; color:var(--muted); margin-top:10px; font-size:14px }
+    .note a{ color:var(--accent); text-decoration:none; font-weight:600 }
+
+    .error{ color:#b91c1c; font-size:13px; margin-top:6px; min-height:18px }
+
+    /* success overlay (hidden by default) */
+    .success {
+      position:fixed;
+      left:50%;
+      top:20%;
+      transform:translateX(-50%);
+      background:linear-gradient(90deg,#38bdf8,#0ea5a4);
+      color:#fff;
+      padding:18px 22px;
+      border-radius:10px;
+      box-shadow:0 8px 30px rgba(0,0,0,.25);
+      display:none;
+      z-index:9999;
+    }
+
+    /* ===== responsive ===== */
+    @media (max-width: 920px){
+      .wrap{ padding:0 12px }
+      header{ flex-direction:column; align-items:flex-start; gap:12px; margin-bottom:18px }
+      nav{ width:100%; display:flex; justify-content:space-between; align-items:center }
+      .menu{ gap:6px; }
+    }
+    @media (max-width:720px){
+      form{ grid-template-columns:1fr; }
+      .full{ grid-column: auto; }
+      button[type="submit"]{ grid-column:auto; }
+      .logo-img{ width:48px; height:48px }
+      .brand h2{ font-size:16px }
+    }
+    @media (max-width:420px){
+      .logo-img{ width:40px; height:40px }
+      header{ gap:8px }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="brand" aria-label="Stackly Automotive Home">
+      <img src="Screenshot (7) (1).png" alt="Stackly Logo" class="logo-img">
+      <div>
+        <h2></h2>
+        <small></small>
+      </div>
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <ul class="menu" role="menubar">
+        <li role="none">
+          <a href="home.html" class="active" role="menuitem">Home
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <ul class="dropdown" role="menu" aria-label="Home submenu">
+            <li><a href="index.html" role="menuitem">Home1</a></li>
+            <li><a href="home.html" role="menuitem">Home2</a></li>
+          </ul>
+        </li>
+
+        <li><a href="Buy a Car.html" role="menuitem">Buy a Car</a></li>
+        <li><a href="service.html" role="menuitem">Services</a></li>
+        <li><a href="Price details.html" role="menuitem">Price Details</a></li>
+        <li><a href="about.html" role="menuitem">About</a></li>
+        <li><a href="signup.html" role="menuitem">Signup</a></li>
+        <li><a href="logout.html" role="menuitem">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="card" aria-labelledby="signup-heading">
+      <h1 id="signup-heading">Create Your Account</h1>
+
+      <form id="signupForm" autocomplete="off" novalidate>
+        <div>
+          <label for="firstname">First Name</label>
+          <input id="firstname" name="firstname" type="text" inputmode="text" required placeholder="John">
+          <div id="err-name" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="lastname">Last Name</label>
+          <input id="lastname" name="lastname" type="text" inputmode="text" required placeholder="Doe">
+        </div>
+
+        <div>
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="text" inputmode="numeric" maxlength="10" required placeholder="9876543210">
+          <div id="err-phone" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="full">
+          <label for="address">Address</label>
+          <input id="address" name="address" type="text" required placeholder="House no, street, area">
+        </div>
+
+        <div>
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" required placeholder="Bangalore">
+        </div>
+
+        <div>
+          <label for="pincode">Pincode</label>
+          <input id="pincode" name="pincode" type="text" inputmode="numeric" maxlength="6" required placeholder="560001">
+          <div id="err-pin" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="car_brand">Car Brand</label>
+          <select id="car_brand" name="car_brand" required>
+            <option value="">Select</option>
+            <option>Honda</option><option>Toyota</option><option>Hyundai</option>
+            <option>Tata</option><option>Maruti Suzuki</option><option>Ford</option><option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="car_model">Car Model</label>
+          <input id="car_model" name="car_model" type="text" required placeholder="City, Nexon, i20">
+        </div>
+
+        <div>
+          <label for="year">Year of Manufacture</label>
+          <input id="year" name="year" type="number" min="1990" max="2025" placeholder="2020">
+        </div>
+
+        <div>
+          <label for="fuel_type">Fuel Type</label>
+          <select id="fuel_type" name="fuel_type" required>
+            <option value="">Select</option><option>Petrol</option><option>Diesel</option><option>CNG</option><option>Electric</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" minlength="6" required placeholder="Enter password">
+        </div>
+
+        <div>
+          <label for="confirm_password">Confirm Password</label>
+          <input id="confirm_password" name="confirm_password" type="password" minlength="6" required placeholder="Re-enter password">
+          <div id="err-pass" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="full">
+          <label for="about">About / Additional Info</label>
+          <textarea id="about" name="about" placeholder="Anything about your car or needs..." rows="3"></textarea>
+        </div>
+
+        <button type="submit">Create Account</button>
+        <div class="note">Already have an account? <a href="signin.html">Sign In</a></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="success" class="success" role="status">✅ Account created — redirecting to home...</div>
+
+  <script>
+    // helpers
+    const onlyLettersPattern = /^[A-Za-z\s\-]+$/; // letters, spaces, hyphen
+    const onlyDigits10 = /^[0-9]{10}$/;
+    const onlyDigits6 = /^[0-9]{6}$/;
+
+    const firstname = document.getElementById('firstname');
+    const lastname = document.getElementById('lastname');
+    const phone = document.getElementById('phone');
+    const pincode = document.getElementById('pincode');
+    const signupForm = document.getElementById('signupForm');
+
+    // prevent invalid chars while typing
+    function forceLetters(e){
+      this.value = this.value.replace(/[^A-Za-z\s\-]/g,'');
+    }
+    function forceDigits(e){
+      this.value = this.value.replace(/[^0-9]/g,'');
+    }
+
+    firstname.addEventListener('input', forceLetters);
+    lastname.addEventListener('input', forceLetters);
+    document.getElementById('city').addEventListener('input', forceLetters);
+
+    phone.addEventListener('input', function(){ forceDigits.call(this); if(this.value.length>10) this.value = this.value.slice(0,10); });
+    pincode.addEventListener('input', function(){ forceDigits.call(this); if(this.value.length>6) this.value = this.value.slice(0,6); });
+
+    // submit handler
+    signupForm.addEventListener('submit', function(evt){
+      evt.preventDefault();
+
+      // read trimmed values
+      const vFirst = firstname.value.trim();
+      const vLast = lastname.value.trim();
+      const vPhone = phone.value.trim();
+      const vPin = pincode.value.trim();
+      const pwd = document.getElementById('password').value;
+      const cpwd = document.getElementById('confirm_password').value;
+
+      // clear previous errors
+      document.getElementById('err-name').textContent = '';
+      document.getElementById('err-phone').textContent = '';
+      document.getElementById('err-pin').textContent = '';
+      document.getElementById('err-pass').textContent = '';
+
+      // validations
+      if (!onlyLettersPattern.test(vFirst) || !onlyLettersPattern.test(vLast)) {
+        document.getElementById('err-name').textContent = 'Names can contain only letters, spaces or hyphens.';
+        firstname.focus();
+        return;
+      }
+
+      if (!onlyDigits10.test(vPhone)) {
+        document.getElementById('err-phone').textContent = 'Phone must be exactly 10 digits.';
+        phone.focus();
+        return;
+      }
+
+      if (!onlyDigits6.test(vPin)) {
+        document.getElementById('err-pin').textContent = 'Pincode must be exactly 6 digits.';
+        pincode.focus();
+        return;
+      }
+
+      if (pwd.length < 6) {
+        document.getElementById('err-pass').textContent = 'Password must be at least 6 characters.';
+        document.getElementById('password').focus();
+        return;
+      }
+
+      if (pwd !== cpwd) {
+        document.getElementById('err-pass').textContent = 'Passwords do not match.';
+        document.getElementById('confirm_password').focus();
+        return;
+      }
+
+      // All good — show success message then redirect
+      const success = document.getElementById('success');
+      success.style.display = 'block';
+
+      // TODO: send data to server via fetch/XHR here if you want
+
+      setTimeout(()=> {
+        window.location.href = 'index.html';
+      }, 1400);
+    });
+  </script>
+</body>
+</html>

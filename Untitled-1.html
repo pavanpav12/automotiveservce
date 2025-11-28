@@ -1,0 +1,710 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stackly Automotive</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  
+<!-- Loader Section -->
+<div id="loader">
+  <div class="loader-content">
+    <img src="stackly.jpeg" alt="Stackly Automotive Logo" class="loader-logo">
+    <h2 class="loader-text">Stackly Automotive <h2>
+  </div>
+</div>
+
+<script>
+  // Loader fade-out after page fully loads
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+      loader.classList.add("fade-out");
+    }, 4500); // keeps loader visible 1.5s for smooth transition
+  });
+</script>
+
+  <header>
+  <div class="logo">
+    <img src="stackly.jpeg" alt="Stackly Automotive" class="logo-img">
+        <h2>Stackly Automotive</h2>
+        <small>Reliable care • Transparent pricing • Fast turnaround</small>
+      </div>
+    </div>
+
+     <!-- NAV -->
+    <nav>
+      <a href="#home">Home</a>
+      <a href="Home.html">Home2</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#details">Service Details</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#blog">Blog</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#contact">Contact</a>
+      <button onclick="toggleDarkMode()"> Dark/Light</button>
+    </nav>
+  </header>
+  
+<!-- HERO SLIDER (Place it right after header) -->
+  <section id="home" class="hero-slider">
+  <div class="slide">
+      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600""  alt="Slide 1">
+      <div class="caption"></div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600" alt="Slide 2">
+      <div class="caption"></div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600" alt="Slide 3">
+      <div class="caption"></div>
+    </div>
+  </div>
+</section>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === index) slide.classList.add("active");
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto slide every 3 seconds
+setInterval(nextSlide, 3000);
+
+  </script>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <h2>Full-Service Car Care</h2>
+    <p>Expert car servicing, detailing, and repairs with honesty and precision.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn primary">View Services</a>
+      <a href="#contact" class="btn">Book Appointment</a>
+    </div>
+  </section>
+<header>
+  
+  <!-- navigation goes here -->
+</header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h3>About Stackly Automotive</h3>
+
+        <h4>Driven by Trust, Powered by Expertise</h4>
+        <p>At Stackly Automotive, we deliver exceptional vehicle care with transparency and reliability. 
+        Our certified technicians bring years of hands-on experience to keep your vehicle in top shape.</p>
+        <h5>Our Values</h5>
+        <ul>
+          <li>✅ Transparent Pricing</li>
+          <li>✅ Customer Satisfaction</li>
+          <li>✅ Eco-Friendly Practices</li>
+          <li>✅ Certified Technicians</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <header>
+  <nav>
+    <!-- navigation links here -->
+  </nav>
+ 
+</header>
+ 
+  <!-- SERVICES -->
+  <section id="services">
+    <h3>Our Services</h3>
+    <div class="services-grid">
+      <a href="#service-general" class="service-card">🔧 General Service</a>
+      <a href="#service-tyres" class="service-card">🛞 Tyres & Alignment</a>
+      <a href="#service-diagnostics" class="service-card">🔍 Diagnostics & Repair</a>
+      <a href="#service-detailing" class="service-card">✨ Detailing & Care</a>
+      <a href="#service-wash" class="service-card">💧 Car Wash</a>
+      <a href="#service-fleet" class="service-card">📊 Fleet Solutions</a>
+    </div>
+  </section>
+   <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Stackly Automotive | Designed by P Gowda</p>
+  </footer>
+  
+  <!-- DETAILS -->
+  <section id="details">
+    <h3>Service Details & Pricing</h3>
+    <article id="service-general" class="detail-card">
+      <h4>General Service</h4>
+      <p>Oil, filters, inspections & more.</p>
+      <table><tr><td>Small Car</td><td>₹1499</td></tr><tr><td>SUV</td><td>₹2199</td></tr></table>
+    </article>
+    <article id="service-tyres" class="detail-card">
+      <h4>Tyres & Alignment</h4>
+      <p>Wheel balancing, puncture, alignment.</p>
+      <table><tr><td>Puncture Repair</td><td>₹300</td></tr></table>
+    </article>
+    <article id="service-diagnostics" class="detail-card">
+      <h4>Diagnostics & Repair</h4>
+      <p>OBD scan, engine codes, troubleshooting.</p>
+      <table><tr><td>Basic Scan</td><td>₹799</td></tr></table>
+    </article>
+    <article id="service-detailing" class="detail-card">
+      <h4>Detailing & Care</h4>
+      <p>Interior cleaning, polish, ceramic coating.</p>
+      <table><tr><td>Full Detail</td><td>₹2999</td></tr></table>
+    </article>
+    <article id="service-wash" class="detail-card">
+      <h4>Car Wash</h4>
+      <p>Eco-friendly wash & polish.</p>
+      <table><tr><td>Basic Wash</td><td>₹399</td></tr></table>
+    </article>
+    <article id="service-fleet" class="detail-card">
+      <h4>Fleet Solutions</h4>
+      <p>Maintenance, scheduling, reporting.</p>
+      <table><tr><td>Custom Plans</td><td>On Request</td></tr></table>
+    </article>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Stackly Automotive | Designed by P Gowda</p>
+  </footer>
+  
+  <!-- TESTIMONIALS + ARTICLES -->
+<section id="testimonials">
+  <h3>What Our Customers Say</h3>
+  <div class="testimonial-slider">
+    <div class="testimonial-card active">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 1">
+      <p>"Amazing service! My car feels brand new after the general service."</p>
+      <h4>- Ramesh K</h4>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Customer 2">
+      <p>"Fast and reliable, they fixed my tyre puncture in no time!"</p>
+      <h4>- Priya S</h4>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Customer 3">
+      <p>"Best detailing service in town, my car shines like new!"</p>
+      <h4>- Anil M</h4>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer 4">
+      <p>"Friendly staff and excellent car care. Highly recommended!"</p>
+      <h4>- Sneha P</h4>
+    </div>
+  </div>
+
+  <div class="testimonial-buttons">
+    <button id="prev-testimonial" class="btn">❮ Previous</button>
+    <button id="next-testimonial" class="btn">Next ❯</button>
+  </div>
+
+  <!-- Additional short articles about automotive services -->
+  <div class="testimonial-articles">
+    <article class="testimonial-article">
+      <h4>5 Tips to Keep Your Engine Healthy</h4>
+      <p>Regular oil changes, proper cooling system maintenance, and timely inspections can extend your engine's life and improve performance.</p>
+    </article>
+    <article class="testimonial-article">
+      <h4>Why Wheel Alignment Matters</h4>
+      <p>Proper alignment reduces tyre wear, improves fuel efficiency, and ensures safe handling of your vehicle on all roads.</p>
+    </article>
+    <article class="testimonial-article">
+      <h4>Car Detailing: More Than Just Clean</h4>
+      <p>Professional detailing protects your car’s paint, interior, and overall value, making it look and feel brand new every time.</p>
+    </article>
+  </div>
+</section>
+
+<!-- JS for Testimonial Slider -->
+<script>
+const testimonials = document.querySelectorAll(".testimonial-card");
+let currentTestimonial = 0;
+
+document.getElementById("next-testimonial").addEventListener("click", () => {
+  testimonials[currentTestimonial].classList.remove("active");
+  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+  testimonials[currentTestimonial].classList.add("active");
+});
+
+document.getElementById("prev-testimonial").addEventListener("click", () => {
+  testimonials[currentTestimonial].classList.remove("active");
+  currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+  testimonials[currentTestimonial].classList.add("active");
+});
+</script>
+  <footer>
+    <p>© 2025 Stackly Automotive | Designed by P Gowda</p>
+  </footer>
+  
+  <!-- BLOG SECTION -->
+  <section id="blog">
+    <h3>Latest from Our Blog</h3>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600" alt="Blog 1">
+        <h4>5 Tips to Extend Your Car’s Life</h4>
+        <p>Simple habits that make your vehicle last longer and perform better.</p>
+        
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600" alt="Blog 2">
+        <h4>Choosing the Right Engine Oil</h4>
+        <p>Learn about viscosity, grades, and picking the best oil for your car.</p>
+        
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600" alt="Blog 3">
+        <h4>Why Tyre Rotation Matters</h4>
+        <p>Improve fuel efficiency, handling, and tyre lifespan with this habit.</p>
+       
+      </article>
+    </div>
+  </section>
+
+  <!-- BLOG DETAILS POPUP -->
+  <div id="blog-detail" class="blog-detail hidden">
+    <div class="blog-detail-content">
+      <h3 id="blog-title"></h3>
+      <p id="blog-text"></p>
+      <button id="go-home" class="btn primary">🏠 Go Back Home</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+  // Blog detail content data
+  const blogs = {
+    1: {
+      title: "5 Tips to Extend Your Car’s Life",
+      text: "To make your car last longer, ensure regular oil changes, check tyre pressure monthly, drive smoothly without harsh braking, keep fluids topped up, and follow your service schedule."
+    },
+    2: {
+      title: "Choosing the Right Engine Oil",
+      text: "Choosing the right engine oil depends on viscosity, type (synthetic or mineral), and manufacturer recommendation. Check your owner’s manual for exact specifications."
+    },
+    3: {
+      title: "Why Tyre Rotation Matters",
+      text: "Tyre rotation helps distribute wear evenly, improving performance and safety. Rotate every 8,000–10,000 km for best results and better fuel economy."
+    }
+  };
+
+  // Read more buttons
+  document.querySelectorAll(".read-more").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.blog;
+      document.getElementById("blog-title").textContent = blogs[id].title;
+      document.getElementById("blog-text").textContent = blogs[id].text;
+
+      document.getElementById("blog-detail").classList.remove("hidden");
+      document.getElementById("blog").style.display = "none";
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Go Home button
+  document.getElementById("go-home").addEventListener("click", () => {
+    document.getElementById("blog-detail").classList.add("hidden");
+    document.getElementById("blog").style.display = "block";
+    document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+  });
+  </script>
+
+  <!-- Blog Content Section -->
+  <section class="blog-details">
+    <article class="blog-content">
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600" alt="Car Maintenance" class="blog-image">
+
+      <h2>Essential Car Maintenance Tips for a Longer Vehicle Life</h2>
+      <p class="meta">Posted on October 8, 2025 | By Admin | 4 Comments</p>
+
+      <p>
+        Regular car maintenance is key to ensuring your vehicle runs smoothly and lasts longer.
+        Ignoring basic maintenance can lead to costly repairs and even safety issues down the line.
+        In this article, we’ll cover essential car care tips every driver should know.
+      </p>
+
+      <h3>1. Check Engine Oil Regularly</h3>
+      <p>
+        Engine oil keeps your car’s engine lubricated and prevents overheating. Always check the oil level
+        and color using the dipstick, and replace it as recommended by your manufacturer.
+      </p>
+
+      <h3>2. Maintain Proper Tire Pressure</h3>
+      <p>
+        Low tire pressure affects fuel efficiency and can lead to tire damage. Use a pressure gauge to
+        ensure your tires are inflated to the correct PSI levels.
+      </p>
+
+      <blockquote>
+        “Taking care of your car means taking care of your safety and your wallet.”
+      </blockquote>
+
+      <h3>3. Replace Worn-Out Brake Pads</h3>
+      <p>
+        Never compromise on safety. If you notice squeaking sounds or longer braking distances,
+        have your brake pads checked and replaced immediately.
+      </p>
+
+      <h3>4. Schedule Regular Professional Inspections</h3>
+      <p>
+        A professional mechanic can detect potential issues before they become major problems.
+        Schedule a full inspection at least twice a year.
+      </p>
+<div class="blog-grid">
+  <a href="404.html" class="blog-card">
+    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600" alt="Blog 1">
+    <h4>5 Tips to Extend Your Car’s Life</h4>
+    <p>Simple habits that make your vehicle last longer and perform better.</p>
+  </a>
+
+  <a href="404.html" class="blog-card">
+    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600" alt="Blog 2">
+    <h4>Choosing the Right Engine Oil</h4>
+    <p>Learn about viscosity, grades, and picking the best oil for your car.</p>
+  </a>
+
+  <a href="404.html" class="blog-card">
+    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600" alt="Blog 3">
+    <h4>Why Tyre Rotation Matters</h4>
+    <p>Improve fuel efficiency, handling, and tyre lifespan with this habit.</p>
+  </a>
+</div>
+
+      <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Stackly Automotive | Designed by P Gowda</p>
+  </footer>
+  
+  <section id="dashboard">
+    <h3>Admin Dashboard</h3>
+    <div class="dashboard-grid">
+      <div class="dashboard-card">
+        <h4>Analytics</h4>
+        <p>📊 1,250 visits this month</p>
+      </div>
+      <div class="dashboard-card">
+        <h4>Users</h4>
+        <p>👥 320 registered users</p>
+      </div>
+      <div class="dashboard-card">
+        <h4>Orders</h4>
+        <p>🛒 85 orders pending</p>
+      </div>
+      <div class="dashboard-card">
+        <h4>Messages</h4>
+        <p>✉️ 12 new messages</p>
+      </div>
+    </div>
+  </section
+
+ <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Stackly Automotive | Designed by P Gowda</p>
+  </footer>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h3>Book a Service or Get in Touch</h3>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>📍 Stackly Automotive, #123 Car Street, Bangalore</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ service@stacklyauto.com</p>
+      </div>
+
+      <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.998716102572!2d77.59456231517594!3d12.97159899085527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae167ecaf2f59d%3A0xdeb72d2f0976e8e8!2sBangalore%20Automotive%20Hub!5e0!3m2!1sen!2sin!4v1696867427056!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+    <form class="booking-form">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="tel" name="phone" placeholder="Mobile Number" maxlength="10" required>
+  <select name="service" required>
+    <option value="">Select Service</option>
+    <option>General Service</option>
+    <option>Tyres & Alignment</option>
+    <option>Diagnostics</option>
+    <option>Car Wash</option>
+  </select>
+  <input type="date" name="date" required>
+  <button type="submit" class="btn">Book Appointment</button>
+</form>
+<footer>
+
+  <div class="footer-container">
+    <!-- Logo & About -->
+    <div class="footer-logo-about">
+      <h3 class="footer-logo">Stackly<span>Automotive</span></h3>
+      <p>We provide innovative solutions in automotive and digital services to accelerate your business growth.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about ">about</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>Email: info@stacklyautomotive.com</p>
+      <p>Phone: +91 1234567890</p>
+      <p>Address: 123, Main Street, City, India</p>
+    </div>
+
+    <!-- Social Media -->
+    
+
+  <p class="footer-bottom">© 2025 Stackly Digital | Designed by P Gowda</p>
+</footer>
+
+<script>
+const form = document.querySelector(".booking-form");
+const nameInput = form.querySelector("[name='name']");
+const phoneInput = form.querySelector("[name='phone']");
+
+// 🟢 Allow only alphabets in name
+nameInput.addEventListener("input", () => {
+  nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, ""); // removes numbers/symbols
+});
+
+// 🟢 Allow only digits in phone
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = phoneInput.value.replace(/[^0-9]/g, ""); // removes letters/symbols
+});
+
+// ✅ Final validation on submit
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const { name, phone, service, date } = form;
+
+  if (name.value.trim().length < 3) {
+    alert("Please enter a valid name (minimum 3 letters)");
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(phone.value)) {
+    alert("Please enter a valid 10-digit mobile number");
+    return;
+  }
+
+  if (!service.value) {
+    alert("Please select a service");
+    return;
+  }
+
+  if (!date.value) {
+    alert("Please choose a date");
+    return;
+  }
+
+  alert(`✅ Thanks ${name.value}! Your "${service.value}" booking is confirmed for ${date.value}.`);
+  form.reset();
+});
+<!-- FOOTER -->
+  <footer>
+    <p>© 2025 Stackly Automotive | Designed by P Gowda</p>
+  </footer>
+</script>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+</script>
+<script>
+  // Hide loader after 3 seconds
+setTimeout(function() {
+  document.getElementById("loader").style.display = "none";
+}, 3000);
+
+</script>
+  
+  <!-- JS -->
+  <script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const id = link.getAttribute("href").substring(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+  // Service filter functionality
+  const serviceLinks = document.querySelectorAll(".service-card");
+  const detailCards = document.querySelectorAll(".detail-card");
+
+  serviceLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+
+      // Hide all cards except clicked one
+      detailCards.forEach(card => {
+        card.style.display = card.id === targetId ? "block" : "none";
+      });
+
+      // Scroll to details
+      document.getElementById("details").scrollIntoView({ behavior: "smooth" });
+
+      // Add "Show All" button
+      if (!document.querySelector(".show-all-btn")) {
+        const showAll = document.createElement("button");
+        showAll.textContent = "Show All Services";
+        showAll.className = "btn show-all-btn";
+        showAll.style.margin = "20px auto";
+        showAll.style.display = "block";
+        document.getElementById("details").appendChild(showAll);
+
+        showAll.addEventListener("click", () => {
+          detailCards.forEach(card => card.style.display = "block");
+          showAll.remove();
+        });
+      }
+    });
+  });
+  </script>
+</body>
+</html>
+<script>
+  // Service filter functionality
+  const serviceLinks = document.querySelectorAll(".service-card");
+  const detailCards = document.querySelectorAll(".detail-card");
+
+  serviceLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+
+      // Show only the clicked service card
+      detailCards.forEach(card => {
+        card.style.display = card.id === targetId ? "block" : "none";
+      });
+
+      // Scroll to details
+      document.getElementById("details").scrollIntoView({ behavior: "smooth" });
+
+      // Show "Show All" button
+      let showAll = document.querySelector(".show-all-btn");
+      if (!showAll) {
+        showAll = document.createElement("button");
+        showAll.textContent = "Show All Services";
+        showAll.className = "btn show-all-btn";
+        showAll.style.display = "block";
+        showAll.style.margin = "20px auto";
+        document.getElementById("details").appendChild(showAll);
+
+        showAll.addEventListener("click", () => {
+          detailCards.forEach(card => card.style.display = "block");
+          showAll.remove();
+        });
+      }
+    });
+  });
+
+  // Initially, show all service cards
+  detailCards.forEach(card => card.style.display = "block");
+</script>
+<script>
+  const serviceLinks = document.querySelectorAll(".service-card");
+  const detailCards = document.querySelectorAll(".detail-card");
+
+  serviceLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+
+      // Show only the clicked service card
+      detailCards.forEach(card => {
+        card.style.display = card.id === targetId ? "block" : "none";
+      });
+
+      // Scroll to details section
+      document.getElementById("details").scrollIntoView({ behavior: "smooth" });
+
+      // Add "Show All Services" button if not already present
+      let showAll = document.querySelector(".show-all-btn");
+      if (!showAll) {
+        showAll = document.createElement("button");
+        showAll.textContent = "Show All Services";
+        showAll.className = "btn show-all-btn";
+        showAll.style.display = "block";
+        showAll.style.margin = "20px auto";
+        document.getElementById("details").appendChild(showAll);
+
+        showAll.addEventListener("click", () => {
+          detailCards.forEach(card => card.style.display = "block");
+          showAll.remove();
+        });
+      }
+    });
+  });
+  // On page load, show all services
+  detailCards.forEach(card => card.style.display = "block");
+</script>
+  <script>
+  // Wait for the full page (images, fonts, etc.) to load.
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (!loader) return;
+
+    // keep loader visible a tiny bit longer for smoother UX (adjust ms if you want)
+    const visibleMs = 600;
+
+    setTimeout(() => {
+      // start fade out
+      loader.classList.add('fade-out');
+
+      // remove from DOM after transition ends so it can't block anything
+      loader.addEventListener('transitionend', () => {
+        if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+      }, { once: true });
+    }, visibleMs);
+  });
+</script>
+<script>
+  // Get the button
+let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+// Show button when user scrolls down 200px
+window.onscroll = function() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+};
+
+// Scroll to top when button clicked
+scrollTopBtn.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+</script>
